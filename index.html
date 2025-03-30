@@ -1,0 +1,76 @@
+<html><head>
+		<title>the MASSIVE ohio meme revival</title>
+	<meta property="og:video" content="https://ohiomassrevivalapril5th.goguardian.mom/ohio.mp4">
+  	<meta property="og:type" content="video.movie">
+
+		<style>
+            body {
+                font-family: system-ui;
+            }
+
+            #main-video {
+                transform: translate(-50%, -50%);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+            }
+            #autoplay-modal {
+                position: fixed; width: 100vw; height: 100vh; overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0,0,0,0.5);
+                cursor: pointer;
+            }
+            #autoplay-modal-inner {
+                height: 100px;
+                color: white;
+                text-align: center;
+                font-size: 20pt;
+            }
+            #credits {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+            }
+            #credits p {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            #credits a {
+                color: white;
+            }
+
+            .after-modal #autoplay-modal {
+                display: none;
+            }
+            .after-modal #credits {
+                mix-blend-mode: difference;
+            }
+        </style>
+	<body>
+	<div style="position: fixed; width: 100vw; height: 100vh; overflow: hidden; background-color: white">
+            <video autoplay muted loop id="main-video">
+               <source src="./ohio.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="autoplay-modal">
+            <div id="autoplay-modal-inner">
+                Click to play
+            </div>
+        </div>
+        <script>
+            const apmodal = document.getElementById("autoplay-modal");
+            const video = document.getElementById("main-video");
+            apmodal.onclick = function () {
+		    console.log("to skibidi or not!");
+                document.body.className = "after-modal";
+                video.currentTime = 0;
+                video.muted = false;
+            };
+        </script>	 
+</body>
+</html>
